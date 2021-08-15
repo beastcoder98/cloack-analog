@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="watch.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="hour hand">
+            <img src="hour_hand.png" alt="">
+        </div>
+        <div class="minutes hand">
+            <img src="minute_hand.png" alt="">
+        </div>
+        <div class="second hand">
+            <img src="second_hand.png" alt="">
+        </div>
+    </div>
+
+
+    <script>
+        // hour hand
+        let hourHand = document.querySelector('.hour');
+        // minute hand 
+        let minuteHand = document.querySelector('.minutes');
+        // second hand
+        let secondHand = document.querySelector('.second');
+
+        // function that rotates the hands
+        function rotate() {
+
+            const currentDate = new Date();
+
+            const hours = currentDate.getHours();
+            const minutes = currentDate.getMinutes();
+            const seconds = currentDate.getSeconds();
+
+
+            const secondsFraction = seconds / 60;
+            const minutesFraction = (secondsFraction + minutes) / 60;
+            const hoursFraction = (minutesFraction + hours) / 12;
+
+
+            const secondsRotate = secondsFraction * 360;
+            const minutesRotate = minutesFraction * 360;
+            const hoursRotate = hoursFraction * 360;
+
+
+            secondHand.style.transform = `rotate(${secondsRotate}deg)`;
+            minuteHand.style.transform = `rotate(${minutesRotate}deg)`;
+            hourHand.style.transform = `rotate(${hoursRotate}deg)`;
+        }
+
+        setInterval(rotate, 1000);
+    </script>
+</body>
+
+</html>

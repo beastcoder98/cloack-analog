@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #eee;
+}
+
+.container {
+    width: 400px;
+    background: url('clock_face.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    border: 8px solid #283b3f;
+    border-radius: 50%;
+    height: 400px;
+    box-shadow: 2px 2px 8px 2px #5a5a5aef;
+    left: 35%;
+    top: 90px;
+}
+
+.container::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #141e20;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hand {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0px;
+}
